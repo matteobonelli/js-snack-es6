@@ -50,6 +50,11 @@ const students = [
     },
 ]
 
- let nameStudentsList = students.map((element) => element.name.toUpperCase())
+ const nameStudentsList = students.map((element) => element.name.toUpperCase())
 
  console.log(nameStudentsList);
+
+ const gradesMoreThan70 = students.filter((element) => element.grades > 70)
+
+ console.log(gradesMoreThan70)
+

@@ -58,3 +58,7 @@ const students = [
 
  console.log(gradesMoreThan70)
 
+ const grades70Id120 = students.filter((element) => element.grades > 70 && element.id > 120)
+
+ console.log(grades70Id120)
+

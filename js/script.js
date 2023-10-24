@@ -1,16 +1,17 @@
+
 const vipList = [ 'Brad Pitt', 'Johnny Depp', 'Lady Gaga', 'Cristiano Ronaldo', 'Georgina Rodriguez', 'Chiara Ferragni', 'Fedez', 'George Clooney', 'Amal Clooney', 'Maneskin']
+const placeMarker = [];
 
-const seatMarker = vipList.map((element, index) => {
-    const vip = {
+vipList.forEach((vip, index) => {
+    let vipObj = {
         tableName : 'Tavolo Vip',
-        guestName : element,
+        guestName : vip,
         place : index + 1
-    };
-
-    return vip
+    }
+    placeMarker.push(vipObj)
 })
 
-console.log(seatMarker)
+console.log(placeMarker)
 
 const students = [
     {
@@ -62,3 +63,80 @@ const students = [
 
  console.log(grades70Id120)
 
+
+/*
+const nameList = ['pippo', 'PlUTO', 'Paperino']
+
+const nameListFormatted = nameList.map((element) => {
+    let firstLetter = element[0].toUpperCase()
+    let newStr = element.substring(1)
+
+    return firstLetter + newStr.toLowerCase()
+    
+})
+console.log(nameListFormatted)
+
+
+
+const animals = [
+    {
+        nome : 'leone',
+        famiglia : 'felidi',
+        classe : 'mammiferi'
+    },
+    {
+        nome : 'cane',
+        famiglia : 'canidi',
+        classe : 'mammiferi'
+    },
+    {
+        nome : 'gallina',
+        famiglia : 'fasianidi',
+        classe : 'uccelli'
+    }
+];
+
+const mammiferi = animals.filter((element) => element.classe === 'mammiferi');
+
+console.log(mammiferi)
+
+
+
+const persons = [
+    {
+        name : 'Pietro',
+        surname : 'Smusi',
+        age : 41
+    },
+    {
+        name : 'Orazio',
+        surname : 'Grinzosi',
+        age : 38
+    },
+    {
+        name : 'Kenneth',
+        surname : 'Caselli',
+        age : 34
+    },
+    {
+        name : 'Ventilatore',
+        surname : 'Zephyr',
+        age : 1
+    }
+];
+
+ 
+ const canDrive = persons.map((person) => {
+    let message;
+    if(person.age < 18 || person.age > 90){
+        message = `Non puoi guidare!`
+    } else{
+        message = `Puoi guidare!`
+    }
+    let personMessage = `Ciao, ${person.name} ${person.surname}, ${message}`
+    return personMessage
+});
+
+console.log(canDrive)
+
+*/

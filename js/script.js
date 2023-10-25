@@ -144,89 +144,94 @@ console.log(canDrive)
 
 
 */
-const teams = [
-    {
-        nome : 'Albinoleffe',
-        puntiFatti : 0,
-        falliSubiti : 0
-    },
-    {
-        nome : 'Portogruaro',
-        puntiFatti : 0,
-        falliSubiti : 0
-    },
-    {
-        nome : 'Lumezzane',
-        puntiFatti : 0,
-        falliSubiti : 0
-    },
-]
+falliEPunti();
+biciclettePeso();
 
-teams.forEach((el) =>{
-    el.puntiFatti = getRandomIntInclusive(1,100);
-    el.falliSubiti = getRandomIntInclusive(1, 100)
-})
+function falliEPunti() {
+    const teams = [
+        {
+            nome : 'Albinoleffe',
+            puntiFatti : 0,
+            falliSubiti : 0
+        },
+        {
+            nome : 'Portogruaro',
+            puntiFatti : 0,
+            falliSubiti : 0
+        },
+        {
+            nome : 'Lumezzane',
+            puntiFatti : 0,
+            falliSubiti : 0
+        },
+    ]
+    
+    teams.forEach((el) =>{
+        el.puntiFatti = getRandomIntInclusive(1,100);
+        el.falliSubiti = getRandomIntInclusive(1, 100)
+    })
+    
+    console.log(teams)
+    
+    const foulsAndTeams = teams.map((el) => {
+        const {nome, falliSubiti} = el
+        const obj = {
+            nome,
+            falliSubiti
+        }
+        return obj
+    })
+    
+    console.log(foulsAndTeams)
+    
+    foulsAndTeams.forEach((el) => {
+        const {nome, falliSubiti} = el
+        let message = `Nome Squadra : ${nome}, Falli subiti : ${falliSubiti}`
+        createPage(nome, falliSubiti, message)
+    })
+}
 
-console.log(teams)
-
-const foulsAndTeams = teams.map((el) => {
-    const {nome, falliSubiti} = el
-    const obj = {
-        nome,
-        falliSubiti
-    }
-    return obj
-})
-
-console.log(foulsAndTeams)
-
-foulsAndTeams.forEach((el) => {
-    const {nome, falliSubiti} = el
-    let message = `Nome Squadra : ${nome}, Falli subiti : ${falliSubiti}`
-    createPage(nome, falliSubiti, message)
-})
+function biciclettePeso(){
+    const biciclette = [
+        {
+            nome : 'bici',
+            peso : 15
+        },
+        {
+            nome : 'cletta',
+            peso : 10
+        },
+        {
+            nome : 'bicicletta',
+            peso : 12
+        }
+    ]
+    
+    let minWeigths = []
+    
+    biciclette.forEach((el) => {
+        const {peso} = el
+        minWeigths.push(peso)
+    })
+    
+    minWeigth = Math.min(...minWeigths);
+    
+    console.log(minWeigth)
+    
+    const minObject = biciclette.filter((el) => el.peso === minWeigth)
+    console.log(minObject[0])
+    
+    const {nome, peso} = minObject[0]
+    let message = `Nome Bicicletta : ${nome}, Peso : ${peso}`
+    
+    createPage(nome, peso, message)
+}
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
-
-
-const biciclette = [
-    {
-        nome : 'bici',
-        peso : 15
-    },
-    {
-        nome : 'cletta',
-        peso : 10
-    },
-    {
-        nome : 'bicicletta',
-        peso : 12
-    }
-]
-
-let minWeigths = []
-
-biciclette.forEach((el) => {
-    const {peso} = el
-    minWeigths.push(peso)
-})
-
-minWeigth = Math.min(...minWeigths);
-
-console.log(minWeigth)
-
-const minObject = biciclette.filter((el) => el.peso === minWeigth)
-console.log(minObject[0])
-
-const {nome, peso} = minObject[0]
-let message = `Nome Bicicletta : ${nome}, Peso : ${peso}`
-
-createPage(nome, peso, message)
 
 function createPage(name, number, message) {
     const created = document.createElement('div')

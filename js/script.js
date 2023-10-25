@@ -139,7 +139,7 @@ const persons = [
 
 console.log(canDrive)
 
-*/
+
 
 const teams = [
     {
@@ -183,6 +183,36 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+*/
 
+const biciclette = [
+    {
+        nome : 'bici',
+        peso : 15
+    },
+    {
+        nome : 'cletta',
+        peso : 10
+    },
+    {
+        nome : 'bicicletta',
+        peso : 12
+    }
+]
+
+let minWeigths = []
+
+biciclette.forEach((el) => {
+    const {peso} = el
+    minWeigths.push(peso)
+})
+
+minWeigth = Math.min(...minWeigths);
+
+console.log(minWeigth)
+
+const minObject = biciclette.filter((el) => el.peso === minWeigth)
+
+console.log(minObject)
 
 

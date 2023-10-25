@@ -214,7 +214,7 @@ function biciclettePeso(){
         minWeigths.push(peso)
     })
     
-    minWeigth = Math.min(...minWeigths);
+    const minWeigth = Math.min(...minWeigths);
     
     console.log(minWeigth)
     

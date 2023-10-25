@@ -1,3 +1,6 @@
+const pageVisualize = document.getElementById('pagina');
+
+
 /*
 const vipList = [ 'Brad Pitt', 'Johnny Depp', 'Lady Gaga', 'Cristiano Ronaldo', 'Georgina Rodriguez', 'Chiara Ferragni', 'Fedez', 'George Clooney', 'Amal Clooney', 'Maneskin']
 const placeMarker = [];
@@ -140,7 +143,7 @@ const persons = [
 console.log(canDrive)
 
 
-
+*/
 const teams = [
     {
         nome : 'Albinoleffe',
@@ -177,13 +180,19 @@ const foulsAndTeams = teams.map((el) => {
 
 console.log(foulsAndTeams)
 
+foulsAndTeams.forEach((el) => {
+    const {nome, falliSubiti} = el
+    let message = `Nome Squadra : ${nome}, Falli subiti : ${falliSubiti}`
+    createPage(nome, falliSubiti, message)
+})
+
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-*/
+
 
 const biciclette = [
     {
@@ -212,7 +221,15 @@ minWeigth = Math.min(...minWeigths);
 console.log(minWeigth)
 
 const minObject = biciclette.filter((el) => el.peso === minWeigth)
+console.log(minObject[0])
 
-console.log(minObject)
+const {nome, peso} = minObject[0]
+let message = `Nome Bicicletta : ${nome}, Peso : ${peso}`
 
+createPage(nome, peso, message)
 
+function createPage(name, number, message) {
+    const created = document.createElement('div')
+    created.innerHTML = message
+    pageVisualize.append(created);
+}

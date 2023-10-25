@@ -1,4 +1,4 @@
-
+/*
 const vipList = [ 'Brad Pitt', 'Johnny Depp', 'Lady Gaga', 'Cristiano Ronaldo', 'Georgina Rodriguez', 'Chiara Ferragni', 'Fedez', 'George Clooney', 'Amal Clooney', 'Maneskin']
 const placeMarker = [];
 
@@ -64,7 +64,7 @@ const students = [
  console.log(grades70Id120)
 
 
-/*
+
 const nameList = ['pippo', 'PlUTO', 'Paperino']
 
 const nameListFormatted = nameList.map((element) => {
@@ -140,3 +140,49 @@ const persons = [
 console.log(canDrive)
 
 */
+
+const teams = [
+    {
+        nome : 'Albinoleffe',
+        puntiFatti : 0,
+        falliSubiti : 0
+    },
+    {
+        nome : 'Portogruaro',
+        puntiFatti : 0,
+        falliSubiti : 0
+    },
+    {
+        nome : 'Lumezzane',
+        puntiFatti : 0,
+        falliSubiti : 0
+    },
+]
+
+teams.forEach((el) =>{
+    el.puntiFatti = getRandomIntInclusive(1,100);
+    el.falliSubiti = getRandomIntInclusive(1, 100)
+})
+
+console.log(teams)
+
+const foulsAndTeams = teams.map((el) => {
+    const {nome, falliSubiti} = el
+    const obj = {
+        nome,
+        falliSubiti
+    }
+    return obj
+})
+
+console.log(foulsAndTeams)
+
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+
+
+
